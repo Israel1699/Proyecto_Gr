@@ -1,4 +1,3 @@
-
 //import { Input } from './Input.js';
 import { Obj3D } from './Obj3D.js';
 //import { Canvas3D } from './Canvas3D.js';
@@ -16,7 +15,7 @@ graphics = canvas.getContext('2d');
 let cv: CvHLines;
 let obj: Obj3D;
 let ang: number=0;
-
+let aumento:number=0;
 function leerArchivo(e:any) {
   var archivo = e.target.files[0];
   if (!archivo) {
@@ -82,10 +81,14 @@ function pza1DerFunc() {
   let af = 10;
  	
 	Rota3D.initRotate( obj.w[139], obj.w[140], af*Math.PI/180);	
-	
-  for (let i = 201; i <= 238; i++){
+	//1-120 es la figura de afuera
+  //121 a 240 es la figura de adentro
+ // for (let i = 1; i <= 60; i++){
+  for (let i = 1; i <= 240; i++){
     obj.w[i] = Rota3D.rotate(obj.w[i]);
 	}
+  
+ 
 	cv.setObj(obj);
   cv.paint();	
 }
@@ -94,8 +97,12 @@ function pza1IzqFunc() {
   let af = -10;
  	
 	Rota3D.initRotate( obj.w[139], obj.w[140], af*Math.PI/180);	
-	
+	/*
   for (let i = 201; i <= 238; i++){
+    obj.w[i] = Rota3D.rotate(obj.w[i]);
+	}
+  */
+ for (let i = 1; i <= 240; i++){
     obj.w[i] = Rota3D.rotate(obj.w[i]);
 	}
 	cv.setObj(obj);
@@ -106,12 +113,15 @@ function pza12DerFunc() {
   console.log(obj.w[29], obj.w[30], obj.w[6]);
   Rota3D.initRotate(obj.w[29], obj.w[30], af * Math.PI / 180);
 	
-  for (let i = 101; i <= 140; i++){
+  //for (let i = 101; i <= 140; i++){
+    for (let i = 1; i <= 120; i++){
     obj.w[i] = Rota3D.rotate(obj.w[i]);
   }
+  /*
   for (let i = 201; i <= 238; i++){
     obj.w[i] = Rota3D.rotate(obj.w[i]);
 	}
+  */
 	cv.setObj(obj);
   cv.paint();	
 }
@@ -120,11 +130,8 @@ function pza12IzqFunc() {
   let af = -10;
   console.log(obj.w[29], obj.w[30]);
 	Rota3D.initRotate( obj.w[29], obj.w[30], af*Math.PI/180);	
-	
-  for (let i = 101; i <= 140; i++){
-    obj.w[i] = Rota3D.rotate(obj.w[i]);
-	}
-  for (let i = 201; i <= 238; i++){
+
+  for (let i = 1; i <= 120; i++){
     obj.w[i] = Rota3D.rotate(obj.w[i]);
 	}
   
